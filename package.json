@@ -1,0 +1,13 @@
+{
+  "name": "varnika-landing",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Varnika — Landing page and product detail pages (static HTML)",
+  "scripts": {
+    "start": "npx serve frontend -p 8080",
+    "preview": "npx http-server frontend -p 8080",
+    "deploy": "echo \"Deploy using Netlify or GitHub Pages.\""
+  },
+  "author": "",
+  "license": "MIT"
+}

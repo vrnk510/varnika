@@ -1,0 +1,253 @@
+<!doctype html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Varnika membuat produk digital yang membantu hidup sehari-hari menjadi lebih teratur.">
+  <title>Varnika — Digital tools for everyday life</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    :root { --ink: #17312b; --mint: #cdebd9; --cream: #fbf8ef; --orange: #ff744b; --line: #d9e1d7; --muted: #547067; --surface: #ffffff; }
+    [data-theme="dark"] { --ink: #f5f7f1; --mint: #1c332d; --cream: #292929; --orange: #ffd65a; --line: #4b4b4b; --muted: #c0c8c0; --surface: #363636; }
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body { margin: 0; color: var(--ink); background: var(--cream); font-family: 'DM Sans', sans-serif; transition: background-color .25s ease, color .25s ease; }
+    h1, h2, h3, .brand { font-family: 'Space Grotesk', sans-serif; }
+    .dot-grid { background-image: radial-gradient(#b5cdbb 1px, transparent 1px); background-size: 18px 18px; }
+    .pill { border: 1px solid var(--line); border-radius: 999px; }
+    .logo-frame { display: block; width: 132px; height: 64px; overflow: hidden; border-radius: 10px; flex: 0 0 auto; position: relative; }
+    .logo-image { display: block; position: absolute; width: 150px; height: 200px; max-width: none; object-fit: contain; left: 4px; top: -80px; }
+    .footer-meta { color: #fff0eb; }
+    .theme-toggle { width: 38px; height: 38px; display: inline-grid; place-items: center; }
+    .theme-toggle .sun { display: none; }
+    [data-theme="dark"] .theme-toggle .moon { display: none; }
+    [data-theme="dark"] .theme-toggle .sun { display: inline; }
+    [data-theme="dark"] .bg-white { background-color: var(--surface) !important; }
+    [data-theme="dark"] .bg-\[\#dff0e3\] { background-color: #202f2a !important; border-color: #3e584c !important; }
+    [data-theme="dark"] .bg-\[\#cdebd9\] { background-color: #1c332d !important; color: #f5f7f1 !important; }
+    [data-theme="dark"] .text-\[\#17312b\] { color: #f5f7f1 !important; }
+    [data-theme="dark"] .text-\[\#547067\] { color: var(--muted) !important; }
+    [data-theme="dark"] .text-\[\#ff744b\] { color: #ffd65a !important; }
+    [data-theme="dark"] .border-\[\#c5ddcc\] { border-color: #3e584c !important; }
+    [data-theme="dark"] .border-\[\#d9e1d7\] { border-color: var(--line) !important; }
+    [data-theme="dark"] .bg-\[\#ff744b\] { background-color: #d9a929 !important; color: #202020 !important; }
+    [data-theme="dark"] .bg-\[\#ff744b\] .text-white { color: #202020 !important; }
+    [data-theme="dark"] .bg-\[\#17312b\] { background-color: #111f1b !important; }
+    [data-theme="dark"] .hover\:bg-\[\#ff744b\]:hover { background-color: #ffd65a !important; color: #202020 !important; }
+    [data-theme="dark"] .footer-meta { color: #f5f7f1 !important; }
+    .lift { transition: transform .25s ease, box-shadow .25s ease; }
+    .lift:hover { transform: translateY(-5px); box-shadow: 0 18px 35px rgba(23,49,43,.1); }
+    .reveal { animation: rise .7s ease both; }
+    .scroll-reveal { opacity: 0; transform: translateY(28px); transition: opacity .7s ease, transform .7s ease; }
+    .scroll-reveal.is-visible { opacity: 1; transform: translateY(0); }
+    .product-marquee { overflow: hidden; margin-inline: calc(50% - 50vw); width: 100vw; }
+    .product-track { display: flex; width: max-content; gap: 20px; padding-inline: 20px; animation: product-slide 34s linear infinite; }
+    .product-track:hover { animation-play-state: paused; }
+    .product-card { width: min(280px, 76vw); min-height: 230px; flex: 0 0 auto; }
+    @keyframes product-slide { from { transform: translateX(0); } to { transform: translateX(calc(-50% - 10px)); } }
+    @keyframes rise { from { opacity: 0; transform: translateY(16px); } to { opacity: 1; transform: translateY(0); } }
+    @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } .reveal, .scroll-reveal { animation: none; opacity: 1; transform: none; transition: none; } .lift { transition: none; } }
+  </style>
+</head>
+<body>
+  <nav class="max-w-7xl mx-auto px-6 lg:px-10 py-5 flex items-center justify-between" aria-label="Navigasi utama">
+    <a href="#" class="brand flex items-center gap-2 text-2m font-bold tracking-tight" aria-label="Varnika logo">
+      <span class="logo-frame"><img class="logo-image" src="https://lh3.googleusercontent.com/d/1byMLESZjtxynYZmu_b_8lkPGnClNAFf6" alt="Varnika"></span>
+    </a>
+    <div class="hidden md:flex items-center gap-8 text-sm font-semibold">
+      <a href="produk.html" class="hover:text-[#ff744b] transition" data-id="Produk" data-en="Products">Produk</a>
+      <a href="layanan.html" class="hover:text-[#ff744b] transition" data-id="Layanan" data-en="Services">Layanan</a>
+      <a href="#harga" class="hover:text-[#ff744b] transition" data-id="Harga" data-en="Pricing">Harga</a>
+      <a href="#tentang" class="hover:text-[#ff744b] transition" data-id="Tentang Kami" data-en="About Us">Tentang Kami</a>
+    </div>
+    <div class="flex items-center gap-3">
+      <button id="themeToggle" class="pill theme-toggle" type="button" aria-label="Aktifkan dark mode" title="Dark mode"><span class="moon" aria-hidden="true">◐</span><span class="sun" aria-hidden="true">☼</span></button>
+      <button id="langToggle" class="pill px-3 py-2 text-xs font-bold" type="button" aria-label="Ganti bahasa">EN</button>
+      <a href="https://wa.me/6285111310355" target="_blank" rel="noopener noreferrer" class="hidden sm:inline-flex bg-[#17312b] text-white px-5 py-2.5 rounded-full text-sm font-bold hover:bg-[#ff744b] transition" data-id="Mulai ngobrol" data-en="Let's talk">Mulai ngobrol</a>
+    </div>
+  </nav>
+
+  <main id="beranda">
+    <section class="max-w-7xl mx-auto px-6 lg:px-10 pt-16 pb-24 lg:pt-24 grid lg:grid-cols-[1.1fr_.9fr] gap-14 items-center">
+      <div class="reveal">
+        <span class="pill inline-flex px-4 py-2 text-xs font-bold uppercase tracking-[.15em] bg-white" data-id="Small tools. Big difference." data-en="Small tools. Big difference.">Small tools. Big difference.</span>
+        <h1 class="text-5xl sm:text-6xl lg:text-8xl font-bold leading-[.96] tracking-[-.04em] mt-7 mb-7" data-id="Hidup praktis,<br><span class='text-[#ff744b]'>serba digital.</span>" data-en="Practical living,<br><span class='text-[#ff744b]'>fully digital.</span>">Hidup praktis,<br><span class="text-[#ff744b]">serba digital.</span></h1>
+        <p class="max-w-xl text-lg leading-relaxed text-[#547067]" data-id="Temukan produk digital andalan untuk mendukung rutinitas harian Anda." data-en="Discover digital products designed to support your everyday routine.">Temukan produk digital andalan untuk mendukung rutinitas harian Anda.</p>
+        <div class="flex flex-wrap gap-3 mt-9">
+          <a href="#produk" class="bg-[#ff744b] text-white px-6 py-3.5 rounded-full font-bold hover:bg-[#17312b] transition" data-id="Jelajahi produk ↓" data-en="Explore products ↓">Jelajahi produk ↓</a>
+          <a href="#layanan" class="pill px-6 py-3.5 font-bold bg-transparent hover:bg-white transition" data-id="Lihat layanan" data-en="View services">Lihat layanan</a>
+        </div>
+      </div>
+      <div class="relative reveal" style="animation-delay:.15s">
+        <div class="dot-grid absolute -right-5 -top-5 w-36 h-36 rounded-full opacity-70"></div>
+        <div class="relative bg-[#17312b] rounded-[2rem] p-5 sm:p-8 text-white min-h-[390px] overflow-hidden">
+          <div class="flex justify-between items-center text-xs text-[#cdebd9]"><span>VARNIKA </span><span>EVERYDAY, BETTER</span></div>
+          <div class="absolute -right-20 -bottom-24 w-72 h-72 rounded-full bg-[#ff744b]"></div>
+          <div class="relative mt-20"><p class="text-[#cdebd9] text-sm mb-3">Today feels manageable.</p><h2 class="text-4xl sm:text-5xl font-bold leading-tight">Make space<br>for what matters.</h2></div>
+          <div class="absolute bottom-7 left-8 right-8 flex justify-between items-end"><span class="text-6xl font-bold"></span><span class="text-sm text-right text-[#cdebd9]">tools for<br>your rhythm ↗</span></div>
+        </div>
+      </div>
+    </section>
+
+    <section id="produk" class="bg-[#dff0e3] border-y border-[#c5ddcc] py-24">
+      <div class="max-w-7xl mx-auto px-6 lg:px-10">
+        <div class="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-12"><div><p class="text-[#ff744b] font-bold text-sm mb-3">01 / PRODUK</p><h2 class="text-4xl sm:text-5xl font-bold" data-id="Teman untuk rutinitasmu." data-en="A little help for your routine.">Teman untuk rutinitasmu.</h2></div><p class="max-w-sm text-[#547067]" data-id="Dibuat untuk dipakai, bukan sekadar terlihat bagus." data-en="Made to be used, not just to look good.">Dibuat untuk dipakai, bukan sekadar terlihat bagus.</p></div>
+        <div class="product-marquee" aria-label="Daftar produk Varnika yang bergerak">
+          <div class="product-track">
+            <article class="product-card lift bg-white rounded-2xl p-6 flex flex-col justify-between"><div><div class="flex justify-between"><span class="text-3xl">◒</span><span class="text-xs font-bold text-[#8aa294]">01</span></div><h3 class="text-2xl font-bold mt-10">NutriDeck</h3><p class="text-[#547067] mt-2">Catatan nutrisi untuk pilihan harian yang lebih baik.</p></div><span class="text-sm font-bold mt-6">Everyday wellness ↗</span></article>
+            <article class="product-card lift bg-[#ff744b] text-white rounded-2xl p-6 flex flex-col justify-between"><div><div class="flex justify-between"><span class="text-3xl">⌁</span><span class="text-xs font-bold text-[#ffd0c3]">02</span></div><h3 class="text-2xl font-bold mt-10">GymTrack</h3><p class="text-[#fff0eb] mt-2">Pantau latihan dan progres tubuhmu.</p></div><span class="text-sm font-bold mt-6">Move with purpose ↗</span></article>
+            <article class="product-card lift bg-[#17312b] text-white rounded-2xl p-6 flex flex-col justify-between"><div><div class="flex justify-between"><span class="text-3xl">◌</span><span class="text-xs font-bold text-[#cdebd9]">03</span></div><h3 class="text-2xl font-bold mt-10">UntungKu</h3><p class="text-[#cdebd9] mt-2">Kelola uang dengan cara yang sederhana.</p></div><span class="text-sm font-bold mt-6">Money, made clear ↗</span></article>
+            <article class="product-card lift bg-white rounded-2xl p-6 flex flex-col justify-between"><div><div class="flex justify-between"><span class="text-3xl">✦</span><span class="text-xs font-bold text-[#8aa294]">04</span></div><h3 class="text-2xl font-bold mt-10">CareerLog</h3><p class="text-[#547067] mt-2">Simpan langkah dan perkembangan kariermu.</p></div><span class="text-sm font-bold mt-6">Keep growing ↗</span></article>
+            <article class="product-card lift bg-[#ff744b] text-white rounded-2xl p-6 flex flex-col justify-between"><div><div class="flex justify-between"><span class="text-3xl">✧</span><span class="text-xs font-bold text-[#ffd0c3]">05</span></div><h3 class="text-2xl font-bold mt-10">StudyDeck</h3><p class="text-[#fff0eb] mt-2">Susun sesi belajar agar lebih fokus.</p></div><span class="text-sm font-bold mt-6">Learn at your pace ↗</span></article>
+            <article class="product-card lift bg-[#17312b] text-white rounded-2xl p-6 flex flex-col justify-between"><div><div class="flex justify-between"><span class="text-3xl">☾</span><span class="text-xs font-bold text-[#cdebd9]">06</span></div><h3 class="text-2xl font-bold mt-10">TaqwaPad</h3><p class="text-[#cdebd9] mt-2">Teman untuk refleksi dan rutinitas ibadah.</p></div><span class="text-sm font-bold mt-6">Make room for faith ↗</span></article>
+            <article class="product-card lift bg-white rounded-2xl p-6 flex flex-col justify-between"><div><div class="flex justify-between"><span class="text-3xl">＋</span><span class="text-xs font-bold text-[#8aa294]">07</span></div><h3 class="text-2xl font-bold mt-10">TaskDeck</h3><p class="text-[#547067] mt-2">Atur tugas dan fokus pada hal penting.</p></div><span class="text-sm font-bold mt-6">One thing at a time ↗</span></article>
+            <article class="product-card lift bg-[#ff744b] text-white rounded-2xl p-6 flex flex-col justify-between"><div><div class="flex justify-between"><span class="text-3xl">↗</span><span class="text-xs font-bold text-[#ffd0c3]">08</span></div><h3 class="text-2xl font-bold mt-10">Custom Project</h3><p class="text-[#fff0eb] mt-2">Wujudkan alat digital sesuai kebutuhanmu.</p></div><span class="text-sm font-bold mt-6">Built for your life ↗</span></article>
+            <span class="sr-only">Daftar produk diulang untuk animasi.</span>
+            <div aria-hidden="true" class="contents">
+              <article class="product-card lift bg-white rounded-2xl p-6 flex flex-col justify-between"><div><span class="text-3xl">◒</span><h3 class="text-2xl font-bold mt-10">NutriDeck</h3></div><span class="text-sm font-bold mt-6">Everyday wellness ↗</span></article>
+              <article class="product-card lift bg-[#ff744b] text-white rounded-2xl p-6 flex flex-col justify-between"><div><span class="text-3xl">⌁</span><h3 class="text-2xl font-bold mt-10">GymTrack</h3></div><span class="text-sm font-bold mt-6">Move with purpose ↗</span></article>
+              <article class="product-card lift bg-[#17312b] text-white rounded-2xl p-6 flex flex-col justify-between"><div><span class="text-3xl">◌</span><h3 class="text-2xl font-bold mt-10">UntungKu</h3></div><span class="text-sm font-bold mt-6">Money, made clear ↗</span></article>
+              <article class="product-card lift bg-white rounded-2xl p-6 flex flex-col justify-between"><div><span class="text-3xl">✦</span><h3 class="text-2xl font-bold mt-10">CareerLog</h3></div><span class="text-sm font-bold mt-6">Keep growing ↗</span></article>
+              <article class="product-card lift bg-[#ff744b] text-white rounded-2xl p-6 flex flex-col justify-between"><div><span class="text-3xl">✧</span><h3 class="text-2xl font-bold mt-10">StudyDeck</h3></div><span class="text-sm font-bold mt-6">Learn at your pace ↗</span></article>
+              <article class="product-card lift bg-[#17312b] text-white rounded-2xl p-6 flex flex-col justify-between"><div><span class="text-3xl">☾</span><h3 class="text-2xl font-bold mt-10">TaqwaPad</h3></div><span class="text-sm font-bold mt-6">Make room for faith ↗</span></article>
+              <article class="product-card lift bg-white rounded-2xl p-6 flex flex-col justify-between"><div><span class="text-3xl">＋</span><h3 class="text-2xl font-bold mt-10">TaskDeck</h3></div><span class="text-sm font-bold mt-6">One thing at a time ↗</span></article>
+              <article class="product-card lift bg-[#ff744b] text-white rounded-2xl p-6 flex flex-col justify-between"><div><span class="text-3xl">↗</span><h3 class="text-2xl font-bold mt-10">Custom Project</h3></div><span class="text-sm font-bold mt-6">Built for your life ↗</span></article>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="layanan" class="max-w-7xl mx-auto px-6 lg:px-10 py-24"><div class="grid lg:grid-cols-[.7fr_1.3fr] gap-14"><div><p class="text-[#ff744b] font-bold text-sm mb-3">02 / LAYANAN</p><h2 class="text-4xl sm:text-5xl font-bold leading-tight" data-id="Punya ide yang membantu banyak orang?" data-en="Have an idea that could help people?">Punya ide yang membantu banyak orang?</h2></div><div><p class="text-xl text-[#547067] leading-relaxed mb-10" data-id="Kami membuka layanan projek terbatas untuk mewujudkan website dan alat digital yang membuat kehidupan sehari-hari jadi lebih mudah." data-en="We take on a limited number of projects to build websites and digital tools that make everyday life easier.">Kami membuka layanan projek terbatas untuk mewujudkan website dan alat digital yang membuat kehidupan sehari-hari jadi lebih mudah.</p>    <div class="border-t border-[#d9e1d7]">
+                  <details class="group py-5 border-b border-[#d9e1d7]"><summary class="flex cursor-pointer list-none items-center justify-between font-bold text-lg"><span>01 — <span data-id="Website" data-en="Website">Website</span></span><span class="text-2xl font-normal transition group-open:rotate-45">+</span></summary><p class="text-[#547067] mt-4 max-w-xl" data-id="Contoh: halaman landing, daftar layanan, dan formulir kontak." data-en="Example: landing page, services list, and contact form.">Contoh: halaman landing, daftar layanan, dan formulir kontak.</p></details>
+                  <details class="group py-5 border-b border-[#d9e1d7]"><summary class="flex cursor-pointer list-none items-center justify-between font-bold text-lg"><span>02 — <span data-id="Daily Operational System" data-en="Daily Operational System">Daily Operational System</span></span><span class="text-2xl font-normal transition group-open:rotate-45">+</span></summary><p class="text-[#547067] mt-4 max-w-xl" data-id="Contoh Sistem pencatatan penjualan dan kasir (Point of Sales), manajemen stok barang, atau portal absensi karyawan. sistem spreadsheet: input harian, ringkasan otomatis, dan Dashboard." data-en="Example Sales and cashier recording systems (Point of Sales), stock management, or employee attendance portals, Spreadsheet-based daily input, automated summary, and Dashboard.">Contoh Sistem pencatatan penjualan dan kasir (Point of Sales), manajemen stok barang, atau portal absensi karyawan. sistem spreadsheet: input harian, ringkasan otomatis, dan Dashboard.</p></details>
+                  <details class="group py-5 border-b border-[#d9e1d7]"><summary class="flex cursor-pointer list-none items-center justify-between font-bold text-lg"><span>03 — <span data-id="Product & System Digital" data-en="Product & Digital Systems">Product & System Digital</span></span><span class="text-2xl font-normal transition group-open:rotate-45">+</span></summary><p class="text-[#547067] mt-4 max-w-xl" data-id="Contoh: Sistem E-Commerce,  E-book & Media Cetak Digital, Sistem E-Commerce atau layanan Software as a Service (SaaS)." data-en="Examples: E-Commerce Systems, E-books & Digital Print Media, E-Commerce Systems or Software as a Service (SaaS) services.">Contoh: Sistem E-Commerce,  E-book & Media Cetak Digital, Sistem E-Commerce atau layanan Software as a Service (SaaS).</p></details>
+                  <details class="group py-5 border-b border-[#d9e1d7]"><summary class="flex cursor-pointer list-none items-center justify-between font-bold text-lg"><span>04 — <span data-id="Internet of Things" data-en="Internet of Things">Internet of Things</span></span><span class="text-2xl font-normal transition group-open:rotate-45">+</span></summary><p class="text-[#547067] mt-4 max-w-xl" data-id="Contoh IoT: sensor sederhana, dashboard monitoring, dan notifikasi." data-en="IoT example: simple sensors, monitoring dashboard, and notifications.">Contoh IoT: sensor sederhana, dashboard monitoring, dan notifikasi.</p></details>
+                  <details class="group py-5 border-b border-[#d9e1d7]"><summary class="flex cursor-pointer list-none items-center justify-between font-bold text-lg"><span>05 — <span data-id="Artificial Intelligence" data-en="Artificial Intelligence">Artificial Intelligence</span></span><span class="text-2xl font-normal transition group-open:rotate-45">+</span></summary><p class="text-[#547067] mt-4 max-w-xl" data-id="Contoh AI: fitur ringkasan otomatis, rekomendasi, atau klasifikasi sederhana." data-en="AI example: auto-summarization, recommendations, or simple classification.">Contoh AI: fitur ringkasan otomatis, rekomendasi, atau klasifikasi sederhana.</p></details>
+                  <details class="group py-5 border-b border-[#d9e1d7]"><summary class="flex cursor-pointer list-none items-center justify-between font-bold text-lg"><span>06 — <span data-id="Design Graphics" data-en="Design Graphics">Design Graphics</span></span><span class="text-2xl font-normal transition group-open:rotate-45">+</span></summary><p class="text-[#547067] mt-4 max-w-xl" data-id="Contoh Design Graphics: mockup social post, banner, dan template brand." data-en="Design Graphics example: social post mockups, banners, and brand templates.">Contoh Design Graphics: mockup social post, banner, dan template brand.</p></details>
+                </div>
+                <a href="#kontak" class="inline-flex mt-8 bg-[#17312b] text-white px-6 py-3.5 rounded-full font-bold hover:bg-[#ff744b] transition" data-id="Ceritakan idemu →" data-en="Tell us your idea →">Ceritakan idemu →</a></div></div></section>
+ 
+  <section id="harga-lama" class="hidden bg-[#17312b] text-white py-24"><div class="max-w-7xl mx-auto px-6 lg:px-10"><div class="max-w-2xl mb-12"><p class="text-[#ffb39e] font-bold text-sm mb-3">03 / HARGA</p><h2 class="text-4xl sm:text-5xl font-bold">Jelas dari awal.</h2></div></div></section>
+ 
+  <section id="tentang" class="max-w-7xl mx-auto px-6 lg:px-10 py-24 grid md:grid-cols-2 gap-14 items-center"><div><p class="text-[#ff744b] font-bold text-sm mb-3">04 / TENTANG KAMI</p><h2 class="text-4xl sm:text-5xl font-bold leading-tight" data-id="Teknologi yang membantu secara efektif." data-en="Technology that helps effectively.">Teknologi yang membantu secara efektif.</h2></div><div><p class="text-xl leading-relaxed text-[#547067]" data-id="Varnika dibangun di atas prinsip bahwa teknologi terbaik adalah yang bekerja secara presisi tanpa membebani penggunanya. Kami merancang alat yang seamless dan berpusat pada manusia, memastikan tingkat adopsi yang tinggi. Kami hadir untuk memangkas inefisiensi, memberikan ruang yang lebih luas bagi Anda untuk menjalankan bisnis dan kehidupan secara optimal." data-en="Varnika is built on the principle that the best technology works precisely without burdening its users. We design seamless, human-centered tools, ensuring high adoption rates. We aim to eliminate inefficiencies, freeing you up to run your business and life optimally.">Varnika dibangun di atas prinsip bahwa teknologi terbaik adalah yang bekerja secara presisi tanpa membebani penggunanya. Kami merancang alat yang seamless dan berpusat pada manusia, memastikan tingkat adopsi yang tinggi. Kami hadir untuk memangkas inefisiensi, memberikan ruang yang lebih luas bagi Anda untuk menjalankan bisnis dan kehidupan secara optimal.</p><div class="mt-8 flex gap-8 text-sm font-bold"><span>Indonesia</span><span>Est. Oct 2025</span></div></div></section>
+  <section id="harga" class="bg-[#17312b] text-white py-24"><div class="max-w-7xl mx-auto px-6 lg:px-10"><p class="text-[#ffb39e] font-bold text-sm mb-3">03 / HARGA</p><h2 class="text-4xl sm:text-5xl font-bold mb-10" data-id="Pilih kebutuhanmu." data-en="Choose what you need.">Pilih kebutuhanmu.</h2><div class="grid md:grid-cols-2 gap-5"><a href="produk.html" class="rounded-2xl p-7 bg-[#cdebd9] text-[#17312b] hover:translate-y-[-4px] transition"><span class="text-sm font-bold">01 / PRODUK</span><h3 class="text-3xl font-bold mt-5" data-id="Harga Produk" data-en="Product Pricing">Harga Produk</h3><p class="mt-3" data-id="Lihat fitur yang didapatkan dari setiap produk digital Varnika." data-en="See the features included in every Varnika digital product.">Lihat fitur yang didapatkan dari setiap produk digital Varnika.</p><span class="inline-block mt-8 font-bold" data-id="Lihat harga produk →" data-en="View product pricing →">Lihat harga produk →</span></a><a href="layanan.html" class="rounded-2xl p-7 border border-[#45665a] hover:bg-[#24443a] hover:translate-y-[-4px] transition"><span class="text-sm font-bold text-[#ffb39e]">02 / LAYANAN</span><h3 class="text-3xl font-bold mt-5" data-id="Harga Layanan" data-en="Service Pricing">Harga Layanan</h3><p class="text-[#cdebd9] mt-3" data-id="Lihat layanan dan deliverables yang akan Anda dapatkan." data-en="See the services and deliverables you will receive.">Lihat layanan dan deliverables yang akan Anda dapatkan.</p><span class="inline-block mt-8 font-bold" data-id="Lihat harga layanan →" data-en="View service pricing →">Lihat harga layanan →</span></a></div></div></section>
+  <section id="faq" class="max-w-7xl mx-auto px-6 lg:px-10 py-24"><div class="grid lg:grid-cols-[.7fr_1.3fr] gap-14"><div><p class="text-[#ff744b] font-bold text-sm mb-3">05 / FAQ</p><h2 class="text-4xl sm:text-5xl font-bold leading-tight" data-id="Frequently asked<br>questions" data-en="Frequently asked<br>questions">Frequently asked<br>questions</h2></div><div class="border-t border-[#d9e1d7]"><details class="group py-5 border-b border-[#d9e1d7]"><summary class="flex cursor-pointer list-none items-center justify-between font-bold text-lg"><span data-id="Apa itu produk Varnika?" data-en="What are Varnika products?">Apa itu produk Varnika?</span><span class="text-2xl font-normal transition group-open:rotate-45">+</span></summary><p class="text-[#547067] mt-4 max-w-xl" data-id="Produk digital sederhana untuk membantu mengatur uang, belajar, kesehatan, karier, dan rutinitas sehari-hari." data-en="Simple digital products that help with money, learning, wellness, career, and everyday routines.">Produk digital sederhana untuk membantu mengatur uang, belajar, kesehatan, karier, dan rutinitas sehari-hari.</p></details><details class="group py-5 border-b border-[#d9e1d7]"><summary class="flex cursor-pointer list-none items-center justify-between font-bold text-lg"><span data-id="Apakah bisa membuat produk khusus?" data-en="Can you build a custom product?">Apakah bisa membuat produk khusus?</span><span class="text-2xl font-normal transition group-open:rotate-45">+</span></summary><p class="text-[#547067] mt-4 max-w-xl" data-id="Bisa. Layanan Custom Project membantu mewujudkan website, sistem, IoT, atau solusi AI sesuai masalah yang ingin diselesaikan." data-en="Yes. Custom Project helps build websites, systems, IoT, or AI solutions around a real problem.">Bisa. Layanan Custom Project membantu mewujudkan website, sistem, IoT, atau solusi AI sesuai masalah yang ingin diselesaikan.</p></details><details class="group py-5 border-b border-[#d9e1d7]"><summary class="flex cursor-pointer list-none items-center justify-between font-bold text-lg"><span data-id="Bagaimana cara memulai projek?" data-en="How do I start a project?">Bagaimana cara memulai projek?</span><span class="text-2xl font-normal transition group-open:rotate-45">+</span></summary><p class="text-[#547067] mt-4 max-w-xl" data-id="Pilih layanan yang sesuai, lihat detail harganya, lalu hubungi kami untuk membahas kebutuhan dan langkah berikutnya." data-en="Choose a service, review its pricing, then reach out to discuss your needs and next steps.">Pilih layanan yang sesuai, lihat detail harganya, lalu hubungi kami untuk membahas kebutuhan dan langkah berikutnya.</p></details></div></div></section>
+  </main>
+ 
+  <footer class="bg-[#080909] text-white pt-16 pb-7"><div class="max-w-7xl mx-auto px-6 lg:px-10"><div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-12 pb-16"><div><div class="text-2xl font-bold"><span class="text-[#ffd65a]"></span></div><p class="text-[#aeb8b2] text-sm leading-relaxed mt-5 max-w-xs" data-id="Produk digital yang membantu hidup sehari-hari terasa lebih teratur." data-en="Digital products that make everyday life feel more organized.">Produk digital yang membantu hidup sehari-hari terasa lebih teratur.</p><a href="#" class="inline-flex items-center gap-5 mt-8 bg-[#dfff37] text-[#151515] px-4 py-3 rounded-md font-bold text-sm">Company Deck <span class="text-xl">↓</span></a><div class="flex gap-3 mt-8"><a href="#" class="w-10 h-10 rounded-full border border-[#3e4642] grid place-items-center text-xs" aria-label="Instagram">ig</a><a href="#" class="w-10 h-10 rounded-full border border-[#3e4642] grid place-items-center text-xs" aria-label="LinkedIn">in</a><a href="#" class="w-10 h-10 rounded-full border border-[#3e4642] grid place-items-center text-xs" aria-label="X">x</a></div></div><div><h3 class="font-bold text-[#ffd65a]">Produk</h3><div class="space-y-4 mt-6 text-sm text-[#aeb8b2]"><a href="produk.html" class="block hover:text-white">NutriDeck</a><a href="produk.html" class="block hover:text-white">GymTrack</a><a href="produk.html" class="block hover:text-white">UntungKu</a><a href="produk.html" class="block hover:text-white">StudyDeck</a><a href="produk.html" class="block hover:text-white">TaskDeck</a></div></div><div><h3 class="font-bold text-[#ffd65a]">Layanan</h3><div class="space-y-4 mt-6 text-sm text-[#aeb8b2]"><a href="layanan.html" class="block hover:text-white">Website</a><a href="layanan.html" class="block hover:text-white">Daily Operational System</a><a href="layanan.html" class="block hover:text-white">Product & System Digital</a><a href="layanan.html" class="block hover:text-white">Internet of Things</a><a href="layanan.html" class="block hover:text-white">Artificial Intelligence</a><a href="layanan.html" class="block hover:text-white">Design Graphics</a></div></div><div><h3 class="font-bold text-[#ffd65a]">Jelajahi</h3><div class="space-y-4 mt-6 text-sm text-[#aeb8b2]"><a href="index.html#harga" class="block hover:text-white">Harga</a><a href="index.html#tentang" class="block hover:text-white">Tentang Kami</a><a href="index.html#faq" class="block hover:text-white">FAQ</a><p class="pt-3 text-[#e5ebe7]"> Indonesia</p></div></div></div><div class="border-t border-[#252b28] pt-5 flex flex-col sm:flex-row justify-between gap-3 text-sm text-[#aeb8b2]"><span>© 2026 Varnika</span><span data-id="" data-en=""></span></div></div></footer>
+ 
+  <script>
+  document.querySelectorAll('footer').forEach((footer) => {
+  footer.querySelectorAll('a').forEach((link) => {
+  if (link.textContent.includes('Company Deck')) link.remove();
+  if (link.getAttribute('aria-label') === 'LinkedIn') link.remove();
+  if (link.getAttribute('aria-label') === 'X') { link.setAttribute('aria-label', 'TikTok'); link.innerHTML = '<svg aria-hidden="true" width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M15.4 3c.3 2.3 1.6 3.7 3.6 4v3.2c-1.4-.1-2.7-.5-3.7-1.2v6.2a5.7 5.7 0 1 1-5-5.6v3.3a2.5 2.5 0 1 0 1.8 2.4V3h3.3Z"/></svg>'; }
+  if (link.getAttribute('aria-label') === 'Instagram') link.innerHTML = '<svg aria-hidden="true" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg>';
+  });
+  });
+  const pricingSection = document.getElementById('harga');
+  const oldPricingSection = document.getElementById('harga-lama');
+  const aboutSection = document.getElementById('tentang');
+  const faqSection = document.getElementById('faq');
+  if (pricingSection && aboutSection) aboutSection.before(pricingSection);
+  if (faqSection && aboutSection) aboutSection.after(faqSection);
+  if (oldPricingSection) oldPricingSection.remove();
+  const productNames = ['NutriDeck', 'GymTrack', 'UntungKu', 'CareerLog', 'StudyDeck', 'TaqwaPad', 'TaskDeck', 'MoneyFy'];
+  const productTrack = document.querySelector('#produk .product-track');
+  const originalCards = productTrack ? productTrack.querySelectorAll(':scope > .product-card') : [];
+  const duplicateCards = productTrack ? productTrack.querySelector('.contents') : null;
+  const productCards = document.querySelectorAll('#produk .product-track .product-card');
+  const productDetailPages = ['NutriDeck.html', 'GymTrack.html', 'UntungKu.html', 'CareerLog.html', 'StudyDeck.html', 'TaqwaPad.html', 'TaskDesk.html', 'MoneyFy.html'];
+  productCards.forEach((card, index) => { card.querySelector('h3').textContent = productNames[index % productNames.length]; card.setAttribute('role', 'link'); card.tabIndex = 0; const openDetail = () => { window.location.href = productDetailPages[index % productDetailPages.length]; }; card.addEventListener('click', openDetail); card.addEventListener('keydown', (event) => { if (event.key === 'Enter' || event.key === ' ') { event.preventDefault(); openDetail(); } }); });
+  const footerProductHeading = [...document.querySelectorAll('footer h3')].find((heading) => heading.textContent.trim() === 'Produk');
+  if (footerProductHeading) { const productLinks = footerProductHeading.nextElementSibling; ['CareerLog', 'TaqwaPad', 'MoneyFy'].forEach((name) => { const link = document.createElement('a'); link.href = 'produk.html'; link.className = 'block hover:text-white'; link.textContent = name; productLinks.append(link); }); }
+  const themeToggle = document.getElementById('themeToggle');
+  const scrollItems = document.querySelectorAll('main > section, footer, #produk article');
+  const revealObserver = new IntersectionObserver((entries, observer) => {
+  entries.forEach((entry) => {
+  if (!entry.isIntersecting) return;
+  entry.target.classList.add('is-visible');
+  observer.unobserve(entry.target);
+  });
+  }, { threshold: 0.14 });
+  scrollItems.forEach((element, index) => {
+  element.classList.add('scroll-reveal');
+  if (element.matches('#produk article')) element.style.transitionDelay = `${(index % 3) * 100}ms`;
+  revealObserver.observe(element);
+  });
+  const savedTheme = localStorage.getItem('varnika-theme');
+  document.documentElement.dataset.theme = savedTheme || 'dark';
+  const updateThemeLabel = () => {
+  const isDark = document.documentElement.dataset.theme === 'dark';
+  themeToggle.setAttribute('aria-label', isDark ? 'Aktifkan light mode' : 'Aktifkan dark mode');
+  themeToggle.setAttribute('title', isDark ? 'Light mode' : 'Dark mode');
+  };
+  updateThemeLabel();
+  themeToggle.addEventListener('click', () => {
+  const isDark = document.documentElement.dataset.theme === 'dark';
+  document.documentElement.dataset.theme = isDark ? 'light' : 'dark';
+  localStorage.setItem('varnika-theme', isDark ? 'light' : 'dark');
+  updateThemeLabel();
+  });
+  const toggle = document.getElementById('langToggle');
+  let language = 'id';
+  toggle.addEventListener('click', () => {
+  language = language === 'id' ? 'en' : 'id';
+  document.documentElement.lang = language;
+  toggle.textContent = language === 'id' ? 'EN' : 'ID';
+  document.querySelectorAll('[data-id][data-en]').forEach((element) => {
+  element.innerHTML = element.dataset[language];
+  });
+  });
+  </script>
+  <script>
+  // Proximity-based details open: open a details when cursor approaches its summary
+  (function(){
+    const container = document.querySelector('#layanan .border-t');
+    if (!container) return;
+    const details = Array.from(container.querySelectorAll('details')) || Array.from(container.querySelectorAll('.group'));
+    if (!details.length) return;
+    let openDetail = null;
+    const threshold = 60; // pixels from the element to trigger open
+    function distanceToRect(x, y, r){
+      const dx = Math.max(r.left - x, x - r.right, 0);
+      const dy = Math.max(r.top - y, y - r.bottom, 0);
+      return Math.sqrt(dx*dx + dy*dy);
+    }
+    function onMove(e){
+      const x = e.clientX, y = e.clientY;
+      let nearest = null, minDist = Infinity;
+      details.forEach((d) => {
+        const summary = d.querySelector('summary');
+        if (!summary) return;
+        const r = summary.getBoundingClientRect();
+        const dist = distanceToRect(x, y, r);
+        if (dist < minDist) { minDist = dist; nearest = d; }
+      });
+      if (minDist <= threshold && nearest) {
+        if (openDetail && openDetail !== nearest) openDetail.open = false;
+        if (!nearest.open) nearest.open = true;
+        openDetail = nearest;
+      } else {
+        if (openDetail) { openDetail.open = false; openDetail = null; }
+      }
+    }
+    let leaveTimer = null;
+    container.addEventListener('mousemove', (e) => { clearTimeout(leaveTimer); onMove(e); });
+    container.addEventListener('mouseleave', () => { leaveTimer = setTimeout(()=>{ if (openDetail) { openDetail.open = false; openDetail = null; } }, 150); });
+    // keyboard support: open on focus, close on blur
+    details.forEach((d) => {
+      const s = d.querySelector('summary');
+      if (!s) return;
+      s.setAttribute('tabindex', '0');
+      s.addEventListener('focus', () => { if (openDetail && openDetail !== d) openDetail.open = false; d.open = true; openDetail = d; });
+      s.addEventListener('blur', () => { setTimeout(()=>{ if (document.activeElement !== s) { d.open = false; if (openDetail === d) openDetail = null; } }, 50); });
+    });
+  })();
+  </script>
+</body>
+</html>
